@@ -9,7 +9,7 @@ import GrandDEurope from "../../public/Images/grandeurope.png";
 import Anandain from "../../public/Images/andain.png";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const ProjectDetails = [
   {
@@ -39,7 +39,7 @@ const ProjectDetails = [
 ];
 
 const SkillList = [
-  "Proficient in HTML5, CSS3, and JavaScript (ES6+)",
+  "Proficient in HTML5, CSS3, and JavaScript ES6+",
 
   "Expertise in modern frontend frameworks and libraries such as React.js, Tailwind Css and Redux Toolkit",
 
@@ -70,6 +70,7 @@ export default function Home() {
               href={"#about"}
               className="scroll-down w-[40px] h-[85px] flex items-center justify-center border-2 border-[#5340B4] rounded-full cursor-pointer"
             >
+              <span className="sr-only">ScrollIcon</span>
               <CgScrollV className="text-[4rem] arrow-icon" />
             </Link>
           </div>
@@ -82,19 +83,19 @@ export default function Home() {
           <h2>About Me</h2>
           <div className="md:mt-10">
             <p>
-              I'm a Hem Bhadur. I am enthusiastic, diligent and passionate
+              I am a Hem Bhadur. I am enthusiastic, diligent and passionate
               software developer specializing in frontend developer. Having
               strong foundation in React.js, and Node.js. I have worked in both
               front-end and back-end technologies. Additionally, I have working
-              experience as a full-stack developer, which enables me to
+              experience as a fullstack developer, which enables me to
               understand the entire development lifecycle and bridge the gap
               between frontend and backend functionalities. My proficiency
               extends to backend technologies like Node.js, Express, and
               databases such as MongoDB. Eager to learn something new and
-              upgrade my skills for future as well.I'm always interested in
+              upgrade my skills for future as well.I am always interested in
               connecting with fellow developers, designers, and tech
-              enthusiasts. Feel free to reach out. Let's build something awesome
-              together!
+              enthusiasts. Feel free to reach out. Let&apos;s build something
+              awesome together
             </p>
 
             <div className="mt-20 ">
@@ -102,9 +103,11 @@ export default function Home() {
                 Key Skills
               </h3>
               <ul className="flex flex-col gap-8 mt-5  list-decimal list-inside">
-                {SkillList.map((data: any) => {
+                {SkillList.map((data: any, index: number) => {
                   return (
-                    <li className="sm:text-[1.8rem] text-[1.5rem]">{data}</li>
+                    <li className="sm:text-[1.8rem] text-[1.5rem]" key={index}>
+                      {data}
+                    </li>
                   );
                 })}
               </ul>
@@ -118,8 +121,8 @@ export default function Home() {
         <div className="max-width">
           <h2>My Projects</h2>
           <div className="projects sm:mt-[20rem] mt-[10rem]">
-            {ProjectDetails.map((Details) => (
-              <div className="project-card flex gap-20">
+            {ProjectDetails.map((Details, index) => (
+              <div className="project-card flex gap-20" key={index}>
                 <div
                   style={{
                     backgroundColor: Details.Color,
@@ -165,7 +168,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="common-section contact-us-section">
+      <section
+        id="contact"
+        className="common-section contact-us-section"
+        style={{
+          backgroundImage:
+            "url(https://e0.pxfuel.com/wallpapers/333/4/desktop-wallpaper-black-grid-black-and-cyan.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 100%",
+        }}
+      >
         <div className="max-width">
           <h2>Contact us</h2>
           <div className="grid lg:grid-cols-2 mt-20 gap-8">
@@ -184,9 +196,9 @@ export default function Home() {
 
                 <div className="mt-10">
                   <p className="md:text-[2.6rem] text-[1.8rem]">
-                    I'm always interested in connecting with fellow developers,
+                    I am always interested in connecting with fellow developers,
                     designers, and tech enthusiasts. Feel free to reach out.
-                    Let's build something awesome together!
+                    Let&apos;s build something awesome together!
                   </p>
                 </div>
               </div>
@@ -194,15 +206,20 @@ export default function Home() {
             <div className="form-control">
               <form action="">
                 <div className="input-area">
-                  <input type="text" name="" required />
-                  <label>Name *</label>
+                  <input type="text" required id="name" />
+                  <label htmlFor="name">Name *</label>
                 </div>
                 <div className="input-area">
-                  <input type="text" name="" required />
-                  <label>Eamil *</label>
+                  <input type="text" id="email" required />
+                  <label htmlFor="email">Eamil *</label>
                 </div>
                 <div className="input-area">
-                  <textarea required rows={8} placeholder="Message*" />
+                  <textarea
+                    required
+                    rows={8}
+                    placeholder="Message*"
+                    aria-label="message"
+                  />
                 </div>
                 <div>
                   <button className="bg-[#BB5765] px-5 py-4 text-[2rem] w-full font-semibold">

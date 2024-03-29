@@ -26,12 +26,22 @@ const Header = () => {
           <li>Contact</li>
         </ul>
         <div className="flex gap-4 items-center">
-          <div className="w-[35px] h-[35px] flex items-center justify-center bg-[#b2404f] rounded-full">
+          <Link
+            href="https://www.linkedin.com/in/hem-bhadur-b2182b26a"
+            target="_blank"
+            className="w-[35px] h-[35px] flex items-center justify-center bg-[#b2404f] rounded-full"
+          >
+            <span className="sr-only">LinkedInIcon</span>
             <RiLinkedinLine className="text-[2rem]" />
-          </div>
-          <div className="w-[35px] h-[35px] flex items-center justify-center bg-[#b240b2] rounded-full">
+          </Link>
+          <Link
+            href={"https://github.com/SushilKc00"}
+            target="_blank"
+            className="w-[35px] h-[35px] flex items-center justify-center bg-[#b240b2] rounded-full"
+          >
+            <span className="sr-only">githubIcon</span>
             <RiGithubFill className="text-[2rem]" />
-          </div>
+          </Link>
         </div>
       </nav>
     </header>
