@@ -1,13 +1,17 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { RiGithubFill, RiLinkedinLine } from "react-icons/ri";
 import "./Header.scss";
 import Link from "next/link";
+import { SiCodeproject } from "react-icons/si";
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
   return (
     <header>
       <nav className="max-width">
-        <div className="logo">
+        <div className="logo" onClick={() => setOpen(!open)}>
           <h2 className="flex text-[#f47150]">
             H <span className="text-[#ffffff]">B</span>
           </h2>
@@ -22,8 +26,12 @@ const Header = () => {
           <li>
             <Link href={"/#project"}>Projects</Link>
           </li>
-          <li>Skills</li>
-          <li>Contact</li>
+          <li>
+            <Link href="/#skills">Skills</Link>
+          </li>
+          <li>
+            <Link href="/#contact">Contact</Link>
+          </li>
         </ul>
         <div className="flex gap-4 items-center">
           <Link
@@ -44,7 +52,35 @@ const Header = () => {
           </Link>
         </div>
       </nav>
+      {/* <MobileNav open={open} setOpen={setOpen} /> */}
     </header>
+  );
+};
+
+const MobileNav = ({ open, setOpen }: any) => {
+  return (
+    <div
+      className="fixed top-[-0%] left-[-30%] h-[220px] bg-gray-400 rounded-full"
+      style={{
+        scale: open ? 1 : 0,
+        transition: "all 0.5s",
+        width: "80%",
+      }}
+    >
+      <div className="absolute right-0">
+        <SiCodeproject size={30} />
+      </div>
+      <div className="absolute top-0 right-0">
+        <SiCodeproject size={30} />
+      </div>
+      <div className="absolute right-0">
+        <SiCodeproject size={30} />
+      </div>
+      <div className="absolute right-0">
+        <SiCodeproject size={30} />
+      </div>
+      {/* <h1>helo</h1> */}
+    </div>
   );
 };
 

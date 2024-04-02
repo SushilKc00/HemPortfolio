@@ -122,12 +122,16 @@ export default function Home() {
           <h2>My Projects</h2>
           <div className="projects sm:mt-[20rem] mt-[10rem]">
             {ProjectDetails.map((Details, index) => (
-              <div className="project-card flex gap-20" key={index}>
+              <Link
+                href="www.google.com"
+                className="project-card flex gap-20"
+                key={index}
+              >
                 <div
                   style={{
                     backgroundColor: Details.Color,
                   }}
-                  className={`lg:w-[40%] w-[100%] rounded-lg hover:w-[100%] transition-all duration-500 flex items-center justify-center`}
+                  className={`lg:w-[40%] w-[100%] rounded-lg hover:w-full transition-all duration-500 flex items-center justify-center`}
                   onMouseEnter={() => setMouseEnter(true)}
                   onMouseLeave={() => setMouseEnter(false)}
                 >
@@ -162,15 +166,34 @@ export default function Home() {
                     </div>
                   )}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
+      <section id="skills" className="skills-section">
+        <div className="skill-circular-container">
+          <h2>Skills</h2>
+          <div className="html">HTML</div>
+          <div className="css">CSS</div>
+          <div className="js">JS</div>
+          <div className="react">REACT</div>
+          <div className="next">NEXT</div>
+          <div className="react-native">REACT NAVTIVE</div>
+          <div className="node">NODE</div>
+          <div className="express">EXPRESS</div>
+          <div className="mongo">MONGO DB</div>
+          <div className="git">GIT</div>
+          <div className="swiper">SWIPER</div>
+          <div className="framer">FRAMER</div>
+        </div>
+      </section>
+
+      {/* CONTACT SECTION****** */}
       <section
         id="contact"
-        className="common-section contact-us-section"
+        className="common-section contact-us-section mt-6"
         style={{
           backgroundImage:
             "url(https://e0.pxfuel.com/wallpapers/333/4/desktop-wallpaper-black-grid-black-and-cyan.jpg)",
@@ -210,7 +233,7 @@ export default function Home() {
                   <label htmlFor="name">Name *</label>
                 </div>
                 <div className="input-area">
-                  <input type="text" id="email" required />
+                  <input type="email" id="email" required />
                   <label htmlFor="email">Eamil *</label>
                 </div>
                 <div className="input-area">
